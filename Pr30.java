@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Pr28 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String input = sc.nextLine();
+
+        HashMap<String, Integer> map = new HashMap<>();
+
+        String words[] = input.split("\\s+");
+
+        for (String word : words) {
+            if (map.containsKey(word)) {
+                map.put(word, map.get(word) + 1);
+            } else {
+                map.put(word, 1);
+            }
+        }
+
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+    }
+}
+// output
+//Java -> 2
+//is -> 2
+//fun -> 1
+//and -> 1
+//powerful -> 1
